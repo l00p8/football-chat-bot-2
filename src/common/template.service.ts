@@ -49,10 +49,11 @@ export class TemplateService {
     }
 
     private load() {
-        const templatesDir: string = path.join(
-            process.cwd(),
-            this.TEMPLATE_PATH,
-        );
+        const templatesDir: string = process.env.TEMPLATES_DIR;
+        // path.join(
+        //     process.cwd(),
+        //     this.TEMPLATE_PATH,
+        // );
         const templateFileNames: string[] = readDirDeepSync(templatesDir);
 
         this.templatesMap = templateFileNames.reduce((acc, fileName) => {
